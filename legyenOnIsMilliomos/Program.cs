@@ -4,7 +4,10 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            Kerdesek kerdesek = new Kerdesek();
+
+            kerdesek.BeolvasKerdes("kerdes.txt");
+            kerdesek.BeolvasSorkerdes("sorkerdes.txt");
         }
     }
 }
