@@ -8,6 +8,9 @@
 
             kerdesek.BeolvasKerdes("kerdes.txt");
             kerdesek.BeolvasSorkerdes("sorkerdes.txt");
+
+            Jatek jatek = new Jatek(kerdesek);
+            jatek.Indit();
         }
     }
 }
