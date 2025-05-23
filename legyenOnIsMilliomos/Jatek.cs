@@ -76,7 +76,7 @@ namespace legyenOnIsMilliomos
                 Console.WriteLine($"B: {k.Valaszok[1]}");
                 Console.WriteLine($"C: {k.Valaszok[2]}");
                 Console.WriteLine($"D: {k.Valaszok[3]}");
-                Console.Write("Adja meg a helyes valaszt (A/B/C/D): ");
+                Console.Write("Adja meg a helyes valaszt (A/B/C/D) vagy alljon meg (STOP): ");
                 Console.WriteLine(k.HelyesValasz);
                 valasz = Console.ReadLine()?.Trim().ToUpper();
 
