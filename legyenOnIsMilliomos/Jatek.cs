@@ -8,6 +8,7 @@ namespace legyenOnIsMilliomos
 {
     internal class Jatek
     {
+        private Segitsegeek segitségek = new Segitsegeek();
         private Kerdesek kerdesek;
         private int szint = 1;
         private int nyeremeny = 0;
@@ -76,11 +77,37 @@ namespace legyenOnIsMilliomos
                 Console.WriteLine($"B: {k.Valaszok[1]}");
                 Console.WriteLine($"C: {k.Valaszok[2]}");
                 Console.WriteLine($"D: {k.Valaszok[3]}");
-                Console.Write("Adja meg a helyes valaszt (A/B/C/D) vagy alljon meg (STOP): ");
+                Console.Write("Adja meg a helyes valaszt (A/B/C/D) vagy alljon meg (STOP) vagy kerjen segitséget: 50(felezo) T(telefon) K(kozonseg): ");
                 Console.WriteLine(k.HelyesValasz);
                 valasz = Console.ReadLine()?.Trim().ToUpper();
 
-                if(valasz.ToUpper() == "STOP")
+                if (valasz == "50" && !segitségek.FelezoHasznalva)
+                {
+                    segitségek.HasznalFelezo();
+                    List<string> lehetosegek = new List<string>{"A", "B", "C", "D"};
+                    lehetosegek.Remove(k.HelyesValasz.ToUpper());
+                    Random rand = new Random();
+                    string torlendo1 = lehetosegek[rand.Next(lehetosegek.Count)];
+                    lehetosegek.Remove(torlendo1 );
+					string torlendo2 = lehetosegek[rand.Next(lehetosegek.Count)];
+					lehetosegek.Remove(torlendo2);
+
+                    Console.WriteLine($"Eltvolitott valaszok: {torlendo1}, {torlendo2}.");
+					valasz = Console.ReadLine()?.Trim().ToUpper();
+                }
+
+                if(valasz == "T" && !segitségek.TelefonHasznalva)
+                {
+
+                }
+
+                if(valasz == "K" && !segitségek.KozonsegHasznalva)
+                {
+
+                }
+
+
+                if(valasz == "STOP")
                 {
                     Console.WriteLine($"Kilép a játékbol és {nyeremenyek[szint-1]} Ft nyert");
                     break;
