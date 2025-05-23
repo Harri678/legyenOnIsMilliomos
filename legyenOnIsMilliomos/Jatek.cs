@@ -14,6 +14,7 @@ namespace legyenOnIsMilliomos
         private int nyeremeny = 0;
         private int[] nyeremenyek = { 10000, 20000, 50000, 100000, 250000, 500000, 750000, 1000000, 1500000, 2000000, 5000000, 10000000, 15000000, 25000000, 50000000 };
         int garantalt = 0;
+        List<char> valaszok = new List<char> { 'A', 'B', 'C', 'D' };
 
         public Jatek(Kerdesek kerdesek)
         {
@@ -32,7 +33,7 @@ namespace legyenOnIsMilliomos
             Console.WriteLine("Valaszok:");
             for (int i = 0; i < sorkerdes.Valaszok.Count; i++)
             {
-                Console.WriteLine($"{i + 1}. {sorkerdes.Valaszok[i]}");
+                Console.WriteLine($"{valaszok[i]}. {sorkerdes.Valaszok[i]}");
             }
             Console.WriteLine("Adja meg a helyes sorrendet (pl. ABCD):");
             Console.WriteLine(sorkerdes.HelyesSorrend);
