@@ -80,6 +80,12 @@ namespace legyenOnIsMilliomos
                 Console.WriteLine(k.HelyesValasz);
                 valasz = Console.ReadLine()?.Trim().ToUpper();
 
+                if(valasz.ToUpper() == "STOP")
+                {
+                    Console.WriteLine($"Kilép a játékbol és {nyeremenyek[szint-1]} Ft nyert");
+                    break;
+                }
+
                 if (valasz == k.HelyesValasz.ToUpper())
                 {
                     Console.ForegroundColor = ConsoleColor.Green;

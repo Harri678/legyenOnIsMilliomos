@@ -65,6 +65,7 @@ namespace legyenOnIsMilliomos
             var lista = KerdesSzintenkent[szint];
             Random rnd = new Random();
             return lista[rnd.Next(lista.Count)];
+            
         }
 
         
