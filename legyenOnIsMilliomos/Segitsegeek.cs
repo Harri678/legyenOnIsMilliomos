@@ -13,8 +13,8 @@ namespace legyenOnIsMilliomos
 		public bool KozonsegHasznalva { get; private set; } = false;
 
 		public void HasznalFelezo() => FelezoHasznalva = true;
-		public void HasznalTelefon() => FelezoHasznalva = true;
-		public void HasznalKozonseg() => FelezoHasznalva = true;
+		public void HasznalTelefon() => TelefonHasznalva = true;
+		public void HasznalKozonseg() => KozonsegHasznalva = true;
 
 
 	}

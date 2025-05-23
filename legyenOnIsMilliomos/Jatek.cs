@@ -95,21 +95,46 @@ namespace legyenOnIsMilliomos
                     Console.WriteLine($"Eltvolitott valaszok: {torlendo1}, {torlendo2}.");
 					valasz = Console.ReadLine()?.Trim().ToUpper();
                 }
-
-                if(valasz == "T" && !segitségek.TelefonHasznalva)
+                else if (valasz == "50" && segitségek.FelezoHasznalva)
                 {
+                    Console.WriteLine("Nincs felezoje!");
+					valasz = Console.ReadLine()?.Trim().ToUpper();
+				}
 
-                }
-
-                if(valasz == "K" && !segitségek.KozonsegHasznalva)
+				if (valasz == "T" && !segitségek.TelefonHasznalva)
                 {
+                    segitségek.HasznalTelefon();
+                    Console.WriteLine($"A telefonos segito szerint a helyes válasz a {k.HelyesValasz}");
+					valasz = Console.ReadLine()?.Trim().ToUpper();
+				}
+				else if(valasz == "T" && segitségek.TelefonHasznalva)
+				{
+					Console.WriteLine("Nincs telefonos segitsége!");
+					valasz = Console.ReadLine()?.Trim().ToUpper();
+				}
 
-                }
-
-
-                if(valasz == "STOP")
+				if (valasz == "K" && !segitségek.KozonsegHasznalva)
                 {
-                    Console.WriteLine($"Kilép a játékbol és {nyeremenyek[szint-1]} Ft nyert");
+                    segitségek.HasznalKozonseg();
+                    Random rand = new Random();
+
+                    int helyesSzazalek = rand.Next(50, 90);
+                    int maradek = 100 - helyesSzazalek;
+
+                    Console.WriteLine($"A közönseg szerint a helyes valasz: {k.HelyesValasz} {helyesSzazalek}-al");
+                    Console.WriteLine($"A többi valasz megoszlik a maradek {maradek} szazalek kozt");
+					valasz = Console.ReadLine()?.Trim().ToUpper();
+				}
+				else if (valasz == "K" && segitségek.KozonsegHasznalva)
+				{
+					Console.WriteLine("Nincs kozonseseg segitseged!");
+					valasz = Console.ReadLine()?.Trim().ToUpper();
+				}
+
+
+				if (valasz == "STOP")
+                {
+                    Console.WriteLine($"Kilép a játékbol és {nyeremenyek[szint-2]} Ft nyert");
                     break;
                 }
 
